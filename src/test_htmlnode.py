@@ -30,7 +30,8 @@ class TestHTMLNode(unittest.TestCase):
 
     def test_leaf_with_no_value(self):
         with self.assertRaises(ValueError):
-            node = LeafNode('p', None).to_html()
+            node = LeafNode('p', None)
+            node.to_html()
 
     def test_to_html_with_children(self):
         child_node = LeafNode("span", "child")
@@ -54,11 +55,13 @@ class TestHTMLNode(unittest.TestCase):
 
     def test_parent_without_tag(self):
         with self.assertRaises(ValueError):
-            node = ParentNode(None, None).to_html()
+            node = ParentNode(None, None)
+            node.to_html()
     
     def test_parent_without_children(self):
         with self.assertRaises(ValueError):
-            node = ParentNode('a', None).to_html()
+            node = ParentNode('a', None)
+            node.to_html()
 
 
 if __name__ == "__main__":
