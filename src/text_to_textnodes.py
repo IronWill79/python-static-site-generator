@@ -1,5 +1,3 @@
-from extract_markdown_images import extract_markdown_images
-from extract_markdown_links import extract_markdown_links
 from split_nodes import split_nodes_delimiter, split_nodes_image, split_nodes_link
 from textnode import TextNode, TextNodeType
 
