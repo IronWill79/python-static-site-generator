@@ -32,12 +32,16 @@ def markdown_to_html_node(markdown):
                 nodes = text_to_children(block)
                 htmlnodes.append(ParentNode("blockquote", nodes))
             case BlockType.UNORDERED_LIST:
-                nodes = text_to_children(block)
+                nodes = []
+                for line in block.split("\n"):
+                    nodes.append(text_to_children(line[2:]))
                 htmlnodes.append(
                     ParentNode("ul", list(map(lambda node: ParentNode("li", node), nodes)))
                 )
             case BlockType.ORDERED_LIST:
-                nodes = text_to_children(block)
+                nodes = []
+                for line in block.split("\n"):
+                    nodes.append(text_to_children(line.split(". ")[1]))
                 htmlnodes.append(
                     ParentNode("ol", list(map(lambda node: ParentNode("li", node), nodes)))
                 )
