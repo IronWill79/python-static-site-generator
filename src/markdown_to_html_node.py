@@ -26,10 +26,10 @@ def markdown_to_html_node(markdown):
                     )
                 )
             case BlockType.HEADING:
-                nodes = text_to_children(block)
+                nodes = text_to_children(block.split(" ", 1)[1])
                 htmlnodes.append(ParentNode(f"h{heading_level(block)}", nodes))
             case BlockType.QUOTE:
-                nodes = text_to_children(block)
+                nodes = text_to_children(block.replace(">", "").strip())
                 htmlnodes.append(ParentNode("blockquote", nodes))
             case BlockType.UNORDERED_LIST:
                 nodes = []
