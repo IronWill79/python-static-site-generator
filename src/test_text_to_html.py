@@ -3,6 +3,7 @@ import unittest
 from textnode import TextNode, TextNodeType
 from text_to_html import text_node_to_html_node
 
+
 class TestTextToHtml(unittest.TestCase):
     def test_text(self):
         node = TextNode('This is a test node', TextNodeType.TEXT)

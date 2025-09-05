@@ -5,6 +5,7 @@ from text_to_html import text_node_to_html_node
 from text_to_textnodes import text_to_textnodes
 from textnode import TextNode, TextNodeType
 
+
 def markdown_to_html_node(markdown):
     blocks = markdown_to_blocks(markdown)
     htmlnodes = []

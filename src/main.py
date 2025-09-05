@@ -3,6 +3,7 @@ import shutil
 
 from generate_page import generate_page
 
+
 def main():
     source = './static'
     dest = './public'
