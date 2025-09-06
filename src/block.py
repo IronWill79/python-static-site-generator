@@ -12,7 +12,7 @@ class BlockType(Enum):
 
 
 def block_to_block_type(markdown):
-    if re.fullmatch(r"^\#{1,6} [\w\d\s]+", markdown):
+    if re.fullmatch(r"^\#{1,6} .+", markdown):
         return BlockType.HEADING
     elif markdown.startswith("```") and markdown.endswith("```"):
         return BlockType.CODE
