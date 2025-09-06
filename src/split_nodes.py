@@ -10,11 +10,13 @@ def split_nodes_delimiter(old_nodes: list[TextNode], delimiter: str, text_type: 
             result.append(node)
             continue
         strings = node.text.split(delimiter)
-        if len(strings) != 3:
+        if len(strings) % 2 != 1:
             raise Exception(f"Must have matching delimiters - {node.text}")
-        result.append(TextNode(strings[0], TextNodeType.TEXT))
-        result.append(TextNode(strings[1], text_type))
-        result.append(TextNode(strings[2], TextNodeType.TEXT))
+        for i in range(len(strings)):
+            tt = text_type
+            if i % 2 == 0:
+                tt = TextNodeType.TEXT
+            result.append(TextNode(strings[i], tt))
     return result
 
 
